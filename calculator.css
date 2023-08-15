@@ -1,3 +1,66 @@
+/* Global styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f4f6;
+}
+
+#container {
+    border: 2px solid #d1d5db;
+    padding: 20px; /* Adjusting padding for consistency */
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: calc(4 * 60px); /* Assuming each button/label has a width of 50px + 10px total for left and right margins */
+}
+
 label {
-    border-style: solid;
+    display: block;
+    width: 100%; /* Full width of its container */
+    border: 1px solid black;
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 5px 0; /* Top and bottom margin only, no side margin */
+    height: 50px;
+    overflow: hidden; /* Prevents content from overflowing */
+    white-space: nowrap; /* Keeps content on a single line */
+    text-overflow: ellipsis; /* Adds ... if content overflows */
+}
+
+button {
+    font-size: 1.5rem;
+    margin: 5px; /* Adjusted for consistency */
+    width: 50px; /* Width of each button */
+    height: 50px; /* Height of each button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d1d5db;
+    background-color: #e5e7eb;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #d1d5db;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 768px) {
+    body {
+        justify-content: flex-start;
+        padding-top: 20px;
+    }
+
+    #container {
+        width: 100%;
+        max-width: 400px; /* Or the max width you want for phones */
+        padding: 15px; /* Adjusting padding for mobile for better aesthetics */
+    }
 }
