@@ -8,19 +8,21 @@ const calculatorLabels = [
 ['0','.','=', '+']
 ]
 
+let userInput = "";
 let num1 = 0;
 let num2 = 0;
 let operator;
+let answer = 0;
 
 let label;
 
-const array = [];
+let array = [];
 index = 0;
 
 function calculator() {
     label = document.createElement('label');
-        container.append(label);
-        // label.textContent = '0';
+    label.textContent = "";
+    container.append(label);
 
     for (let i = 0; i < 4; i++) {
         const row = document.createElement('div');
@@ -38,18 +40,44 @@ function calculator() {
 container.addEventListener('click', (e) => {
     // Check if the clicked element is a button
     if (e.target.tagName === 'BUTTON' && e.target.textContent !== '=') {
-        label.textContent += e.target.textContent;
-        array[index] = e.target.textContent;
-        index++;
+        userInput += e.target.textContent;
+        label.textContent = userInput;
     }
     if (e.target.textContent === '=') {
-        label.textContent = "";
         operate();
     }
 });
 
 function operate() {
-    alert(array);
+    let operators = ['+', '-', '/', '*'];
+    for (let op of operators) {
+        if (userInput.includes(op)) {
+            [num1, num2] = userInput.split(op).map(Number);
+            operator = op;
+            break;
+        }
+    }
+    
+    switch(operator) {
+        case '+':
+            answer = num1 + num2;
+            break;
+        case '-':
+            answer = num1 - num2;
+            break;
+        case '/':
+            answer = num1 / num2;
+            break;
+        case '*':
+            answer = num1 * num2;
+            break;
+    }
+
+    label.textContent = "";
+    alert(answer);
+    answer = 0;
+    userInput  = "";
+
 }
 
 calculator();
