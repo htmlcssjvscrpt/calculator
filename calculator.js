@@ -74,7 +74,7 @@ function operate() {
     }
 
     label.textContent = "";
-    alert(answer);
+    label.textContent = answer;
     answer = 0;
     userInput  = "";
 
